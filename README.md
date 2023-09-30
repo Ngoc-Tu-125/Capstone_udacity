@@ -21,6 +21,12 @@ pip3 install -r requirements.txt
 ```
 
 # **Set up the database URL in your environment**
+The models.py file contains connection instructions to the Postgres database, which must also be setup and running. Provide a valid username and password, if applicable.
+
+Create a database with name jobportal using Psql CLI:
+```
+create database capstone;
+```
 
 ```
 export DATABASE_URL="postgresql://postgres:120598@localhost:5432/capstone"
@@ -32,6 +38,10 @@ export EXCITED="true"
 ```
 python manage.py runserver
 ```
+
+# **RBAC credentials and roles**
+
+Auth0 was set up to manage role-based access control for two users. The API documentation below describes, among others, by which user the endpoints can be accessed. Access credentials and permissions are handled with JWT tockens which must be included in the request header.
 
 # **Testing Instructions**
 
