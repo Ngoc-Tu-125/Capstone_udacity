@@ -1,13 +1,16 @@
 import unittest
 import json
+import os
 from app import create_app, setup_db
+
+producer_role = os.environ['PRODUCER']
 
 class CastingTestCase(unittest.TestCase):
 
     def setUp(self):
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "capstone"
+        self.database_name = "test_capstone"
         self.database_path = "postgresql://postgres:120598@{}/{}".format('localhost:5432', self.database_name)
         setup_db(self.app, self.database_path)
 
@@ -23,7 +26,7 @@ class CastingTestCase(unittest.TestCase):
         }
 
         self.headers = {
-            'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkRNUTFJWVZiVFhYSFRjaU9iWGMtQiJ9.eyJpc3MiOiJodHRwczovL2Rldi1sOGxmc3MxZGU4eHltaWZ5LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJqU3lJUmFKb2Ridm9XWW5DOXpZbmFvaGxqQjBhVE9JcUBjbGllbnRzIiwiYXVkIjoiQ2Fwc3RvbmVfdWRhY2l0eSIsImlhdCI6MTY5NjA2MjE1MiwiZXhwIjoxNjk2MTQ4NTUyLCJhenAiOiJqU3lJUmFKb2Ridm9XWW5DOXpZbmFvaGxqQjBhVE9JcSIsInNjb3BlIjoiZ2V0OmFjdG9ycyBnZXQ6bW92aWVzIHBvc3Q6YWN0b3JzIGRlbGV0ZTphY3RvcnMgcGF0Y2g6YWN0b3JzIHBhdGNoOm1vdmllcyBkZWxldGU6bW92aWVzIHBvc3Q6bW92aWVzIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsImRlbGV0ZTphY3RvcnMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJkZWxldGU6bW92aWVzIiwicG9zdDptb3ZpZXMiXX0.easSkGGr_gGZAq8_WCu3ZPtrohfSlPWSTwpCGQGY76K2PKjA_987YmkJ_UIpLL0y1eAKL9QQd1yR-Qtk5NXrOaoh6DRfM4rbRx1qSCOOGVIgDe9PRJVP7eCULo-vTUORcYWOcfKb_RwbaQ-3_wmLeCTYAa4TDsKaXCUboUP6q_U-KvOMyJtysU7akuwFRTcifZq0VSde-Zl33gNdGVh7V2SNKK9TV5WMyuooa4z4kRmiTyAIA2JGJ-MM2x2JgExWcKD2NyIFYLClmlIjX-fqI8_8TSebLsJFowb9IMHfOt7ucia_1Xx5LsJMhLJP5t4hjBLwXcfZbfFm_ssvismaLg'
+            'Authorization': f'Bearer {producer_role}'
         }
     def tearDown(self):
         # Clear any added data to maintain database state
