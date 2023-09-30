@@ -69,6 +69,7 @@ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkRNUTFJWVZiVFhYSFRjaU9iWGMtQiJ9.eyJ
 Type: Bearer
 
 **get:/actors**
+
 output
 ```json
 {
@@ -82,6 +83,7 @@ output
 }
 ```
 **get:movies**
+
 ```json
 {
     "movies": [
@@ -93,6 +95,7 @@ output
 }
 ```
 **post:actors**
+
 in postman, body (raw -> json)
 ```json
 {
@@ -103,6 +106,7 @@ in postman, body (raw -> json)
 ```
 
 **post:movies**
+
 in postman, body (raw -> json)
 ```json
 {
@@ -112,13 +116,16 @@ in postman, body (raw -> json)
 ```
 
 **delete:actors**
+
 delete:/actors/<actor_id>
 
 **Example:**
+
 ```
 http://127.0.0.1:5000/actors/5
 ```
 **output**
+
 ```json
 {
     "delete": 5,
@@ -127,13 +134,16 @@ http://127.0.0.1:5000/actors/5
 ```
 
 **delete:movies**
+
 delete:/movies/<movie_id>
 
 **Example:**
+
 ```
 http://127.0.0.1:5000/movies/5
 ```
 **output**
+
 ```json
 {
     "delete": 5,
@@ -142,9 +152,11 @@ http://127.0.0.1:5000/movies/5
 ```
 
 **patch:actors**
+
 delete:/actors/<actor_id>
 
 **Example:**
+
 ```
 http://127.0.0.1:5000/actors/4/
 ```
@@ -158,6 +170,7 @@ input:
 ```
 
 **output**
+
 ```json
 {
     "actor": {
@@ -171,9 +184,11 @@ input:
 ```
 
 **patch:movies**
+
 delete:/movies/<movie_id>
 
 **Example:**
+
 ```
 http://127.0.0.1:5000/movies/4/
 ```
@@ -186,6 +201,7 @@ input:
 ```
 
 **output**
+
 ```json
 {
     "movie": {
