@@ -111,6 +111,92 @@ in postman, body (raw -> json)
 }
 ```
 
+**delete:actors**
+delete:/actors/<actor_id>
+
+**Example:**
+```
+http://127.0.0.1:5000/actors/5
+```
+**output**
+```json
+{
+    "delete": 5,
+    "success": true
+}
+```
+
+**delete:movies**
+delete:/movies/<movie_id>
+
+**Example:**
+```
+http://127.0.0.1:5000/movies/5
+```
+**output**
+```json
+{
+    "delete": 5,
+    "success": true
+}
+```
+
+**patch:actors**
+delete:/actors/<actor_id>
+
+**Example:**
+```
+http://127.0.0.1:5000/actors/4/
+```
+input:
+```json
+{
+    "name": "Updated Name",
+    "age": 24,
+    "gender": "Male"
+}
+```
+
+**output**
+```json
+{
+    "actor": {
+        "age": 24,
+        "gender": "Male",
+        "id": 4,
+        "name": "Updated Name"
+    },
+    "success": true
+}
+```
+
+**patch:movies**
+delete:/movies/<movie_id>
+
+**Example:**
+```
+http://127.0.0.1:5000/movies/4/
+```
+input:
+```json
+{
+    "release_date": "1-1-2023",
+    "title": "Updated Name"
+}
+```
+
+**output**
+```json
+{
+    "movie": {
+        "id": 4,
+        "release_date": "Sat, 31 Dec 2022 17:00:00 GMT",
+        "title": "Updated Name"
+    },
+    "success": true
+}
+```
+
 
 # **Render Link**
 
